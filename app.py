@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/home')
+@app.route('/')
 def homepage():
     return render_template("index.html")
 
@@ -18,7 +18,7 @@ def get_weatherdata():
     }
     response = requests.get(url, params=param)
     data = response.json()
-    return f"data : {data}"
+    return f"data : {data}, city : {city}"
 
 
 if __name__ == '__main__':
